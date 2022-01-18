@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters strings</title>
+</head>
+<body>
+    <div class="christmas-quotes">
+        <h1>Christmas Quotes</h1>
+        <ul></ul>
+    </div>
+
+    <div class="cities">
+        <h1>Cities</h1>
+        <ul></ul>
+    </div>
+
+    <script>
+        const christmasQuotes = document.querySelector('.christmas-quotes ul');
+        christmasQuotes.innerHTML = '';
+        const greetings = ['Happy Birthday!',
+                        'Merry Christmas my love',
+                        'A happy Christmas to all the family',
+                        'You\'re all I want for Christmas',
+                        'Get well soon'];
+
+        for (let greeting of greetings) {
+            if (greeting.toLowerCase().includes('christmas')) {
+                const listItem = document.createElement('li');
+                listItem.textContent = greeting;
+                christmasQuotes.appendChild(listItem);
+            }
+        }
+
+        const citiesList = document.querySelector('.cities ul');
+        citiesList.innerHTML = '';
+        const cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+
+        for (let city of cities) {
+            let lowerCaseCity = city.toLowerCase();
+            let firstLetter = lowerCaseCity.slice(0,1);
+            let capitalizedCity = `${firstLetter.toUpperCase()}${lowerCaseCity.slice(1)}`;
+            const result = capitalizedCity;
+            const listItem = document.createElement('li');
+            listItem.textContent = result;
+            citiesList.appendChild(listItem);
+        }
+
+    </script>
+</body>
+</html>
