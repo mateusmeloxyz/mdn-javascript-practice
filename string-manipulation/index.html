@@ -17,6 +17,11 @@
         <ul></ul>
     </div>
 
+    <div class="stations">
+        <h1>Station Names</h1>
+        <ul></ul>
+    </div>
+
     <script>
         const christmasQuotes = document.querySelector('.christmas-quotes ul');
         christmasQuotes.innerHTML = '';
@@ -39,13 +44,32 @@
         const cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
 
         for (let city of cities) {
-            let lowerCaseCity = city.toLowerCase();
-            let firstLetter = lowerCaseCity.slice(0,1);
-            let capitalizedCity = `${firstLetter.toUpperCase()}${lowerCaseCity.slice(1)}`;
+            const lowerCaseCity = city.toLowerCase();
+            const firstLetter = lowerCaseCity.slice(0,1);
+            const capitalizedCity = `${firstLetter.toUpperCase()}${lowerCaseCity.slice(1)}`;
             const result = capitalizedCity;
             const listItem = document.createElement('li');
             listItem.textContent = result;
             citiesList.appendChild(listItem);
+        }
+
+        const stationList = document.querySelector('.stations ul');
+        stationList.innerHTML = '';
+        const stations = ['MAN675847583748sjt567654;Manchester Piccadilly',
+                        'GNF576746573fhdg4737dh4;Greenfield',
+                        'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+                        'SYB4f65hf75f736463;Stalybridge',
+                        'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+
+        for (let station of stations) {
+            const stationCode = station.slice(0,3);
+            const cityIndex = station.indexOf(';');
+            const cityName = station.slice(cityIndex+1);
+            const readableStationName = `${stationCode}: ${cityName}`
+            const result = readableStationName;
+            const listItem = document.createElement('li');
+            listItem.textContent = result;
+            stationList.appendChild(listItem);
         }
 
     </script>
